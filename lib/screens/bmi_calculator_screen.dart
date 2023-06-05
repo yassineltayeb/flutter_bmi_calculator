@@ -69,15 +69,28 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                       const Text('cm'),
                     ],
                   ),
-                  Slider(
-                    value: height.toDouble(),
-                    onChanged: (newValue) {
-                      setState(() {
-                        height = newValue.round();
-                      });
-                    },
-                    min: 120,
-                    max: 220,
+                  SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      activeTrackColor: Colors.white,
+                      thumbShape: const RoundSliderThumbShape(
+                        enabledThumbRadius: 15,
+                      ),
+                      thumbColor: kSecondaryColor,
+                      overlayShape: const RoundSliderOverlayShape(
+                        overlayRadius: 30,
+                      ),
+                      overlayColor: kSecondaryColor.withOpacity(0.16),
+                    ),
+                    child: Slider(
+                      value: height.toDouble(),
+                      onChanged: (newValue) {
+                        setState(() {
+                          height = newValue.round();
+                        });
+                      },
+                      min: 120,
+                      max: 220,
+                    ),
                   )
                 ],
               ),
