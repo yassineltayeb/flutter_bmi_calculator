@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const kMainColor = Color(0xFF0a0d22);
 const kSecondaryColor = Color(0xFFff163d);
 const kCardColor = Color(0xFF1d1f33);
+const kCardColor2 = Color(0xFF0E1327);
 const kLabelActiveColor = Color(0xFFffffff);
 const kLabelInactiveColor = Color(0xFF8d8e98);
 

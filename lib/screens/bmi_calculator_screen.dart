@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/widgets/round_icon_button.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
@@ -13,6 +14,8 @@ class BMICalculatorScreen extends StatefulWidget {
 
 class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
   int height = 183;
+  int weight = 74;
+  int age = 19;
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
           ),
           Expanded(
             child: ReusableCard(
-              color: kCardColor,
+              color: kCardColor2,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -96,14 +99,72 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: Row(
               children: [
                 Expanded(
-                  child: ReusableCard(color: kCardColor),
+                  child: ReusableCard(
+                    color: kCardColor2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'Weight',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          weight.toString(),
+                          style: kLabelTextStyleBold,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              iconData: Icons.add,
+                              onPressed: () {},
+                            ),
+                            const SizedBox(width: 10),
+                            RoundIconButton(
+                              iconData: Icons.remove,
+                              onPressed: () {},
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
                 Expanded(
-                  child: ReusableCard(color: kCardColor),
+                  child: ReusableCard(
+                    color: kCardColor2,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          'AGE',
+                          style: kLabelTextStyle,
+                        ),
+                        Text(
+                          age.toString(),
+                          style: kLabelTextStyleBold,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            RoundIconButton(
+                              iconData: Icons.add,
+                              onPressed: () {},
+                            ),
+                            const SizedBox(width: 10),
+                            RoundIconButton(
+                              iconData: Icons.remove,
+                              onPressed: () {},
+                            ),
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 ),
               ],
             ),
