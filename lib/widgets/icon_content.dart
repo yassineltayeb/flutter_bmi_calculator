@@ -5,9 +5,11 @@ import '../constants.dart';
 class IconContent extends StatelessWidget {
   final IconData icon;
   final String text;
+  final Color labelColor;
   const IconContent({
     required this.icon,
     required this.text,
+    required this.labelColor,
     super.key,
   });
 
@@ -19,7 +21,7 @@ class IconContent extends StatelessWidget {
         Icon(
           icon,
           size: 80,
-          color: kLabelInactiveColor,
+          color: labelColor,
         ),
         const SizedBox(height: 15),
         Text(

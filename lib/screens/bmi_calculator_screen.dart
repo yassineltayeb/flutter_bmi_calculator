@@ -2,6 +2,7 @@ import 'package:bmi_calculator/widgets/round_icon_button.dart';
 import 'package:flutter/material.dart';
 
 import '../constants.dart';
+import '../enums/gender_enum.dart';
 import '../widgets/icon_content.dart';
 import '../widgets/reusable_card.dart';
 
@@ -16,6 +17,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
   int height = 183;
   int weight = 74;
   int age = 19;
+  Gender? selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -25,25 +27,45 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
       ),
       body: Column(
         children: [
-          const Expanded(
+          Expanded(
             child: Row(
               children: [
                 Expanded(
                   child: ReusableCard(
-                    color: kCardColor,
+                    color: selectedGender == Gender.male
+                        ? kCardColor
+                        : kCardColor2,
                     child: IconContent(
                       icon: Icons.male,
                       text: "MALE",
+                      labelColor: selectedGender == Gender.male
+                          ? kLabelActiveColor
+                          : kLabelInactiveColor,
                     ),
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.male;
+                      });
+                    },
                   ),
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: kCardColor,
+                    color: selectedGender == Gender.female
+                        ? kCardColor
+                        : kCardColor2,
                     child: IconContent(
                       icon: Icons.female,
                       text: "FEMALE",
+                      labelColor: selectedGender == Gender.female
+                          ? kLabelActiveColor
+                          : kLabelInactiveColor,
                     ),
+                    onPress: () {
+                      setState(() {
+                        selectedGender = Gender.female;
+                      });
+                    },
                   ),
                 ),
               ],
@@ -51,7 +73,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
           ),
           Expanded(
             child: ReusableCard(
-              color: kCardColor2,
+              color: kCardColor,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -104,7 +126,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
               children: [
                 Expanded(
                   child: ReusableCard(
-                    color: kCardColor2,
+                    color: kCardColor,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -120,12 +142,12 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             RoundIconButton(
-                              iconData: Icons.add,
+                              iconData: Icons.remove,
                               onPressed: () {},
                             ),
                             const SizedBox(width: 10),
                             RoundIconButton(
-                              iconData: Icons.remove,
+                              iconData: Icons.add,
                               onPressed: () {},
                             ),
                           ],
@@ -136,7 +158,7 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                 ),
                 Expanded(
                   child: ReusableCard(
-                    color: kCardColor2,
+                    color: kCardColor,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -152,12 +174,12 @@ class _BMICalculatorScreenState extends State<BMICalculatorScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             RoundIconButton(
-                              iconData: Icons.add,
+                              iconData: Icons.remove,
                               onPressed: () {},
                             ),
                             const SizedBox(width: 10),
                             RoundIconButton(
-                              iconData: Icons.remove,
+                              iconData: Icons.add,
                               onPressed: () {},
                             ),
                           ],
